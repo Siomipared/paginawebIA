@@ -1,37 +1,22 @@
-// Usamos el selector '.paper-btn' ya que son los botones estilizados
-const buttons = document.querySelectorAll('.paper-btn'); 
-const sections = document.querySelectorAll('.content-section');
+// script.js
 
 /**
- * Función para inicializar y mostrar la sección de 'inicio'.
- * También se puede llamar al hacer clic en un botón.
- * @param {string} targetId - El ID de la sección a mostrar.
+ * Redirige al usuario a la página indicada.
+ * @param {string} pagina - Nombre del archivo HTML al que se desea ir.
  */
-function showSection(targetId) {
-    // Oculta todas las secciones
-    sections.forEach(sec => sec.style.display = 'none');
+function irAPagina(pagina) {
+    window.location.href = pagina;
+  }
+  
+  // Efecto visual para los botones al hacer clic
+  document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.paper-btn');
     
-    // Muestra solo la sección objetivo
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-        targetSection.style.display = 'block';
-    }
-}
-
-// 1. Mostrar solo la sección 'inicio' al cargar la página
-// Usamos el evento DOMContentLoaded para asegurar que todos los elementos existen.
-document.addEventListener('DOMContentLoaded', () => {
-    showSection('inicio');
-});
-
-
-// 2. Manejar el clic de los botones
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-target');
-        showSection(targetId);
-        
-        // Opcional: Desplazarse suavemente a la parte superior del contenido
-        document.querySelector('.main-content').scrollTop = 0;
+    botones.forEach(boton => {
+      boton.addEventListener('click', () => {
+        boton.classList.add('activo');
+        setTimeout(() => boton.classList.remove('activo'), 300);
+      });
     });
-});
+  });
+  
