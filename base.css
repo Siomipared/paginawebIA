@@ -1,0 +1,182 @@
+/* === ESTILO BASE GENERAL === */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    color: #fff;
+    background-image: url('tanjiro.jpg'); /* tu fondo general */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === DIFERENCIA ENTRE INICIO Y OTRAS PÁGINAS === */
+body:not(.inicio)::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* desenfoque elegante */
+    background-color: rgba(255, 182, 193, 0.3); /* capa rosa pastel semitransparente */
+    z-index: -1;
+}
+
+/* === CONTENEDOR GENERAL === */
+.container, .contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255, 192, 203, 0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 60px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* === TÍTULOS === */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    border: 4px solid #ffd1dc;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin: 20px auto 40px;
+    background-color: rgba(255, 192, 203, 0.3);
+    text-shadow: 2px 2px #000000aa;
+}
+h2, h3 {
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* === PÁRRAFOS === */
+p {
+    line-height: 1.7;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/* === BOTONES DE NAVEGACIÓN === */
+.sidebar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+.paper-btn {
+    position: relative;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #ffd1dc;
+    color: #3a2239;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px #aaa;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.paper-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 5%;
+    width: 90%;
+    height: 6px;
+    background: #ffb6c1;
+    border-radius: 3px;
+    z-index: -1;
+    transform: skewY(-2deg);
+}
+.paper-btn:hover {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow: 5px 5px #aaa;
+}
+.paper-btn.activo {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* === IMÁGENES EN LAS SECCIONES === */
+img {
+    width: 80%;
+    max-width: 600px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* === PIE DE PÁGINA === */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 192, 203, 0.4);
+    color: #fff;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 1px #000;
+    border-top: 2px solid #ffd1dc;
+    margin-top: auto;
+}
+
+/* === EFECTO DE APARICIÓN (fade-in) === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.contenedor, .container {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    .paper-btn { padding: 8px 15px; font-size: 0.9rem; }
+}
+.section {
+    position: relative; /* importante para que la decor-text se posicione dentro */
+    padding: 30px;
+    background: rgba(105, 13, 197, 0.05);
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .decor-text {
+    position: absolute;
+    top: 10px;       /* ajusta según te guste */
+    right: 10px;     /* ajusta según te guste */
+    font-size: 0.9em;
+    font-weight: 700;
+    color: rgba(38, 59, 126, 0.3);
+    pointer-events: none;  /* no interfiere con clicks */
+    transform: rotate(-10deg);
+  }
+  .section {
+    position: relative; /* Muy importante para que la decoración se posicione dentro */
+    padding: 30px;
+    background: rgba(105, 13, 197, 0.05);
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .decor-text {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    color: rgba(38, 59, 126, 0.3);
+    pointer-events: none;
+    transform: rotate(-10deg);
+  }
+  

@@ -1,202 +1,196 @@
-/* --- Fondo de la página --- */
-body {
+/* =============================
+   ESTILO GENERAL - INICIO
+   ============================= */
+
+   body {
     margin: 0;
-    font-family: 'Times New Roman', serif;
-    background-image: url('tanjiro.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
     overflow-x: hidden;
-}
-
-/* --- Contenedor principal --- */
-.container {
+    background-image: url("tanjiro.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  /* Contenedor general */
+  .container {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     min-height: 100vh;
-    gap: 20px;
-    /* Esto es crucial: garantiza que el contenido se estire si es necesario, pero respeta el sidebar */
-    align-items: flex-start; 
-}
-
-/* * --- Sidebar tipo papel doblado (CORRECCIÓN IMPORTANTE) --- 
- */
-.sidebar {
+    gap: 30px;
+    padding: 40px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
     display: flex;
-    /* Los botones deben estar en fila horizontalmente por defecto */
-    flex-direction: row; 
-    /* Ajuste para que el sidebar no ocupe más espacio del necesario verticalmente */
-    align-self: flex-start;
-    /* Limitamos el ancho para que no se estire demasiado */
-    max-width: 400px;
-    
-    flex-wrap: wrap; 
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
-    padding: 20px;
-}
-.paper-btn {
+  }
+  
+  /* Botones tipo papel */
+  .paper-btn {
     position: relative;
-    padding: 12px 25px;
+    background-color: #ffd6e0; /* rosa pastel */
     border: none;
     border-radius: 12px;
-    background: #ffd1dc;
-    color: #3a2239;
+    padding: 14px 22px;
     font-weight: bold;
+    color: #3a2239;
+    box-shadow: 3px 3px 0px #b37b88;
     cursor: pointer;
-    box-shadow: 2px 2px #aaa;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.paper-btn::after {
+    transition: all 0.3s ease;
+  }
+  
+  .paper-btn::after {
     content: "";
     position: absolute;
     bottom: -6px;
-    left: 5%;
-    width: 90%;
+    left: 6%;
+    width: 88%;
     height: 6px;
     background: #ffb6c1;
-    border-radius: 3px;
-    z-index: -1;
+    border-radius: 4px;
     transform: skewY(-2deg);
-}
-.paper-btn:hover {
-    transform: translateY(-5px) rotate(-1deg);
-    box-shadow: 5px 5px #aaa;
-}
-
-/* --- Contenido principal --- */
-.main-content {
+  }
+  
+  .paper-btn:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow: 6px 6px 0px #b37b88;
+  }
+  
+  /* Efecto al hacer clic */
+  .paper-btn.activo {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Contenido principal */
+  .main-content {
     flex: 1;
-    /* Asegura que el main content también comience desde arriba */
-    align-self: flex-start;
+    background-color: rgba(255, 192, 203, 0.3);
+    backdrop-filter: none; /* Sin difuminado en INICIO */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     text-align: center;
-    padding: 50px 40px;
-}
-/* Asegura que las secciones tengan el mismo ancho y no se deformen en móvil */
-.content-section {
-    text-align: left; /* El texto dentro de las secciones se ve mejor alineado a la izquierda */
-    margin-top: 30px;
-}
-
-
-/* --- Título centrado --- */
-h1 {
+  }
+  
+  /* Título principal */
+  h1 {
     font-size: 3rem;
-    font-weight: bold;
+    text-shadow: 2px 2px 5px #000000a9;
     color: #fff;
-    border: 4px solid #ffd1dc;
-    display: inline-block;
-    padding: 15px 30px;
+    margin-bottom: 30px;
+    -webkit-text-stroke: 1px #000;
+  }
+  
+  /* Texto introductorio */
+  .intro {
+    text-align: justify;
+    line-height: 1.8;
+    background: rgba(255, 182, 193, 0.5);
+    padding: 25px;
     border-radius: 12px;
-    margin-bottom: 50px;
-    text-shadow: 2px 2px #00000088;
+    color: #7c00ff;
+    -webkit-text-stroke: 0.6px #000;
+  }
+  
+  /* Información del grupo */
+  .info-grupo {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    background: rgba(255, 182, 193, 0.6);
+    border-radius: 12px;
+    padding: 15px;
+    color: #fff;
+    -webkit-text-stroke: 0.5px #000;
+    text-align: left;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: rgba(255, 182, 193, 0.4);
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .sidebar {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .main-content {
+      text-align: left;
+    }
+  }
+  /*ulyimo*/
+  /* === AJUSTES ESPECÍFICOS PARA EL INICIO === */
+body.inicio {
+    color: #3a2239; /* texto más oscuro para mejor contraste */
+    text-shadow: none; /* sin sombra negra */
 }
 
-/* --- Tarjeta animada tipo Glassmorphism --- */
-.card {
-    perspective: 1200px;
-    width: 300px;
-    margin: 0 auto;
-    margin-bottom: 50px; /* Separación después de la tarjeta */
-}
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    overflow: hidden;
-}
-.card-front {
-    background: rgba(255, 192, 203, 0.3);
-    backdrop-filter: blur(15px);
+body.inicio .container {
+    background: rgba(255, 255, 255, 0.4); /* fondo más claro y translúcido */
+    color: #3a2239;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     border: 2px solid #ffd1dc;
 }
-.card-back {
-    background: rgba(255, 182, 193, 0.7);
-    backdrop-filter: blur(15px);
-    border: 2px solid #ff99aa;
-    transform: rotateY(180deg);
+
+body.inicio h1 {
+    color: #3a2239;
+    border-color: #ffb6c1;
+    background-color: rgba(255, 209, 220, 0.8);
+    text-shadow: none;
 }
 
-/* --- Imagen dentro de la tarjeta --- */
-.card-image {
-    width: 120px;
-    border-radius: 50%;
-    box-shadow: 0 0 20px #ffb6c1aa;
-    margin-bottom: 20px;
-    animation: floating 3s infinite ease-in-out;
+body.inicio p, 
+body.inicio strong {
+    color: #3a2239;
 }
 
-/* --- Animación de floating --- */
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+body.inicio footer {
+    background-color: rgba(255, 209, 220, 0.7);
+    color: #3a2239;
+    border-top: 2px solid #ffb6c1;
 }
-
-/* --- Partículas flotantes dentro de la tarjeta --- */
-.particles span {
-    position: absolute;
+/* === Imagen del inicio === */
+body.inicio .img-inicio {
+    width: 100%;
+    max-width: 200px;
     display: block;
-    width: 8px;
-    height: 8px;
-    background: #ffb6c1aa;
-    border-radius: 50%;
-    animation: floatParticles 4s infinite ease-in-out;
-}
-.particles span:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
-.particles span:nth-child(2) { top: 20%; left: 70%; animation-delay: 1s; }
-.particles span:nth-child(3) { top: 60%; left: 40%; animation-delay: 2s; }
-.particles span:nth-child(4) { top: 80%; left: 10%; animation-delay: 3s; }
-.particles span:nth-child(5) { top: 50%; left: 80%; animation-delay: 1.5s; }
-
-@keyframes floatParticles {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-    50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- Responsivo: Pila en pantallas pequeñas --- 
- */
-@media (max-width: 900px) {
-    /* Apila el sidebar y el contenido principal */
-    .container { 
-        flex-direction: column;
-        /* Vuelve a la alineación por defecto */
-        align-items: center; 
-    }
-    
-    /* Mantiene los botones en fila pero centrados y con menos padding */
-    .sidebar { 
-        flex-direction: row; 
-        max-width: 100%;
-        padding: 10px;
-    }
-    
-    .paper-btn {
-        /* Reduce el tamaño de los botones en móvil */
-        padding: 8px 15px; 
-        font-size: 0.9rem;
-    }
-    
-    .main-content { 
-        padding: 20px; 
-    }
+/* Efecto al pasar el mouse */
+body.inicio .img-inicio:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
 }
+
+.decor-text {
+    position: absolute;
+    top: 10px;       /* ajusta según te guste */
+    right: 10px;     /* ajusta según te guste */
+    font-size: 0.9em;
+    font-weight: 700;
+    color: rgba(38, 59, 126, 0.3);
+    pointer-events: none;  /* no interfiere con clicks */
+    transform: rotate(-10deg);
+  }
